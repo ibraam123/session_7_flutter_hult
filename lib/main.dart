@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:session_7_flutter_hult/widgets/basic_layout.dart';
 
 /*
 Topics explanation:
@@ -41,133 +42,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class BasicLayout extends StatelessWidget {
-  const BasicLayout({super.key});
-  // Implement Column, Row, MainAxisAlignment, CrossAxisAlignment here
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            Icon(Icons.star, color: Colors.red, size: 50),
-            Icon(Icons.star, color: Colors.green, size: 50),
-            Icon(Icons.star, color: Colors.blue, size: 50),
-          ],
-        ),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: const [
-            Icon(Icons.circle, color: Colors.orange, size: 50),
-            Icon(Icons.circle, color: Colors.purple, size: 50),
-            Icon(Icons.circle, color: Colors.yellow, size: 50),
-          ],
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'Flutter Basic Layout Widgets',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-      ],
-    );
-  }
-}
-
-class StackAndPositioned extends StatelessWidget {
-  const StackAndPositioned({super.key});
-  // Implement Stack, Positioned
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: 50,
-          left: 50,
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.blue.withValues(alpha: 0.5),
-          ),
-        ),
-        Positioned(
-          top: 100,
-          left: 100,
-          child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.red.withValues(alpha: 0.5),
-          ),
-        ),
-        Positioned(
-          top: 150,
-          left: 50,
-          child: Text(
-            'Flutter Advanced Layout Widgets',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ListViewAndListViewBuilder extends StatelessWidget {
-  const ListViewAndListViewBuilder({super.key, required this.isBuilder});
-
-  // Implement ListView, ListView.builder
-  final bool isBuilder;
-
-  @override
-  Widget build(BuildContext context) {
-    return isBuilder ? _buildListViewBuilder() : _buildListView();
-  }
-
-  Widget _buildListView() {
-    return ListView(
-      children: [
-        for (int i = 0; i < 10; i++) CustomContainer(index: i),
-      ],
-    );
-  }
-
-  Widget _buildListViewBuilder() {
-    return ListView.builder(
-      itemCount: 30,
-      itemBuilder: (context, index) => CustomContainer(index: index),
-    );
-  }
 
 
-}
 
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({
-    super.key,
-    this.index = 0,
-  });
-  final int index ;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      margin: const EdgeInsets.all(8),
-      color: Colors.primaries[index % Colors.primaries.length],
-      child: Center(
-        child: Text(
-          'Item $index',
-          style: const TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ),
-    );
-  }
-}
 
 
 
