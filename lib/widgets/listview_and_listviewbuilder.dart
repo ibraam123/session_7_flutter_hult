@@ -16,7 +16,14 @@ class ListViewAndListViewBuilder extends StatelessWidget {
   Widget _buildListView() {
     return ListView(
       children: [
-        for (int i = 0; i < 10; i++) CustomContainer(index: i),
+        CustomContainer(index: 1),
+        CustomContainer(index: 2),
+        CustomContainer(index: 3),
+        CustomContainer(index: 4),
+        CustomContainer(index: 5),
+        CustomContainer(index: 6),
+        CustomContainer(index: 7),
+        CustomContainer(index: 8),
       ],
     );
   }
