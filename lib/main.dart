@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:session_7_flutter_hult/widgets/custom_example_continer.dart';
+import 'package:session_7_flutter_hult/widgets/listview_and_listviewbuilder.dart';
 
 /*
 Topics explanation:
@@ -42,17 +43,18 @@ class ExamplesSession extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.blue,
         ),
-        body: const GridViewBuilderExample(),
+        body: const ListViewAndListViewBuilder(isBuilder: true),
       ),
     );
   }
 }
 
+
 // Column Example
 class ColumnExample extends StatelessWidget {
   const ColumnExample({super.key});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
@@ -169,8 +171,6 @@ class ListViewExample extends StatelessWidget {
   }
 }
 
-
-
 // ListView.builder Example
 class ListViewBuilderExample extends StatelessWidget {
   const ListViewBuilderExample({super.key});
@@ -178,13 +178,13 @@ class ListViewBuilderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 20,
+      itemCount: 17,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: CustomExampleContiner(
             height: 100,
-            color: Colors.primaries[index % Colors.primaries.length],
+            color: Colors.primaries[index],
           ),
         );
       },
@@ -192,8 +192,7 @@ class ListViewBuilderExample extends StatelessWidget {
   }
 }
 
-
-
+// GridView Example
 class GridViewExample extends StatelessWidget {
   const GridViewExample({super.key});
 
@@ -206,15 +205,23 @@ class GridViewExample extends StatelessWidget {
         crossAxisSpacing: 10, // Horizontal spacing between items
       ),
       padding: const EdgeInsets.all(10),
-      children: List.generate(20, (index) {
-        return CustomExampleContiner(
-          color: Colors.primaries[index % Colors.primaries.length],
-        );
-      }),
+      children: [
+          CustomExampleContiner(width: 100, height: 200, color: Colors.blueAccent),
+          CustomExampleContiner(width: 150, height: 150, color: Colors.redAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.greenAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.yellowAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.blueGrey),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.purpleAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.orangeAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.pinkAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.cyanAccent),
+          CustomExampleContiner(width: 200, height: 100, color: Colors.limeAccent),
+      ]
     );
   }
 }
 
+// GridView.builder Example
 class GridViewBuilderExample extends StatelessWidget {
   const GridViewBuilderExample({super.key});
 
@@ -227,10 +234,10 @@ class GridViewBuilderExample extends StatelessWidget {
         crossAxisSpacing: 10, // Horizontal spacing between items
       ),
       padding: const EdgeInsets.all(10),
-      itemCount: 60,
+      itemCount: 17,
       itemBuilder: (context, index) {
         return CustomExampleContiner(
-          color: Colors.primaries[index % Colors.primaries.length],
+          color: Colors.primaries[index],
         );
       },
     );
