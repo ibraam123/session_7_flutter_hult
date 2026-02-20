@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:session_7_flutter_hult/widgets/column_example.dart';
+import 'package:session_7_flutter_hult/session_seven/widgets/column_example.dart';
 /*
 Topics explanation:
   Part one - Flutter Layout Widgets
