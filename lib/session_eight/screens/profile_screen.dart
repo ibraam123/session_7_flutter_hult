@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:session_7_flutter_hult/session_eight/widgets/buttons_widget.dart';
 
-import '../../main.dart';
 import '../app_colors.dart';
 import '../widgets/custom_container_test.dart';
 
@@ -33,9 +32,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            CustomTextField(onSubmit: (value) {
+            /*CustomTextField(onSubmit: (value) {
               tempName = value;
-            }),
+            }),*/
             const SizedBox(height: 48),
             CircleAvatar(
               radius: 50,

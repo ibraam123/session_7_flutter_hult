@@ -12,15 +12,15 @@ class ButtonsWidgets extends StatelessWidget {
     if (buttonType == 'ElevatedButton') {
       return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.red,
           foregroundColor: Colors.white,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(32),
           ),
         ),
         onPressed: onTap,
-        child: Text(name),
+        child: Text(name , style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       );
     } else if (buttonType == 'TextButton') {
       return TextButton(

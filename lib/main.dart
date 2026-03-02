@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:session_7_flutter_hult/session_eight/screens/profile_screen.dart';
-import 'package:session_7_flutter_hult/session_eight/tasks/profile_app.dart';
+import 'package:session_7_flutter_hult/session_nine/screens/main_screen.dart';
+import 'package:session_7_flutter_hult/session_nine/tasks/logic/task_repo.dart';
+import 'package:session_7_flutter_hult/session_nine/tasks/screens/home_screen_task.dart';
 
 /*
 Session 7 Topics explanation:
@@ -30,33 +31,68 @@ Session 8 Topics explanation:
     6 - LifeCycle Methods: Lifecycle methods in Flutter are special methods that are called at different stages of a widget's lifecycle. They allow you to perform specific actions when a widget is created, updated, or destroyed. Some common lifecycle methods include initState (called when the widget is first created), didUpdateWidget (called when the widget is updated), and dispose (called when the widget is removed from the widget tree). These methods are useful for managing resources, initializing data, and cleaning up when a widget is no longer needed.
 * */
 
+/*
+Session 9 Topics explanation:
+  Part One - Navigation and Routing
+    1 - Navigator Widget: The Navigator widget in Flutter is used to manage a stack of routes (screens) in an app. It allows you to navigate between different screens by pushing and popping routes onto the stack. The Navigator widget provides methods such as push, pop, and pushReplacement to control the navigation flow in your app.
+    2 - Routes: In Flutter, a route is a screen or page that can be navigated to. Routes are typically defined as classes that extend StatelessWidget or StatefulWidget. You can create routes for different screens in your app and use the Navigator widget to navigate between them.
+    3 - Named Routes: Named routes in Flutter allow you to define routes with a specific name, making it easier to navigate to them without having to reference the route class directly. You can define named routes in the MaterialApp widget using the routes property, and then navigate to them using the Navigator.pushNamed method.
+    4 - Passing Data Between Screens By Constructor: In Flutter, you can pass data between screens by including parameters in the constructor of the destination screen. When navigating to a new screen, you can create an instance of the destination screen and pass the required data through its constructor. This allows you to share information between screens and create a more dynamic user experience.
+  Part Two - Bottom Navigation Bar and Drawer
+    6 - BottomNavigationBar Widget: The BottomNavigationBar widget in Flutter is used to create a bottom navigation bar that allows users to navigate between different sections of an app. It typically consists of multiple items, each representing a different screen or section. The BottomNavigationBar widget provides properties such as currentIndex and onTap to manage the selected item and handle navigation.
+    7 - Drawer Widget: The Drawer widget in Flutter is used to create a side navigation drawer that can be opened by swiping from the left edge of the screen or by tapping on an icon. It typically contains a list of navigation options or links to different screens in the app. The Drawer widget can be customized with various properties, such as child, backgroundColor, and more, to create a unique navigation experience for your app.
+    8 - Snackbar Widget: The Snackbar widget in Flutter is used to display brief messages at the bottom of the screen. It is typically used to provide feedback to users after an action has been performed, such as showing a confirmation message after a form submission or displaying an error message when something goes wrong. The Snackbar widget can be customized with properties such as content, duration, and action to create a more engaging user experience.
+
+  Functions Of Navigation:
+    1 - push: The push function is used to navigate to a new screen by adding a new route to the navigation stack. It takes a route as an argument and pushes it onto the stack, allowing the user to navigate back to the previous screen using the back button.
+    2 - pop: The pop function is used to navigate back to the previous screen by removing the current route from the navigation stack. It can be called when the user wants to go back or when a certain action is completed on the current screen.
+    3 - pushReplacement: The pushReplacement function is used to replace the current screen with a new one by removing the current route from the navigation stack and pushing a new route onto it. This is useful when you want to navigate to a new screen without allowing the user to go back to the previous one.
+    4 - pushNamed: The pushNamed function is used to navigate to a new screen using a named route. It takes the name of the route as an argument and pushes it onto the navigation stack, allowing for easier navigation without having to reference the route class directly.
+* */
+
+
+/*
 void main() {
   runApp(const ExamplesSession());
 }
-
-class ExamplesSession extends StatefulWidget {
+*/
+class ExamplesSession extends StatelessWidget {
   const ExamplesSession({super.key});
-
-  @override
-  State<ExamplesSession> createState() => _ExamplesSessionState();
-}
-
-class _ExamplesSessionState extends State<ExamplesSession> {
-
-  List<Widget> option = [
-    ProfileApp(),
-    ProfileScreen()
-  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: option[1],
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const MainScreen(),
     );
   }
 }
 
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Task Manager',
+      home: HomeScreenTask(taskRepo: TaskRepo(),),
+    );
+  }
+}
+
+
+
+
+
+
+
+/*
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, this.onSubmit});
   final void Function(String)? onSubmit;
@@ -69,22 +105,23 @@ class CustomTextField extends StatelessWidget {
         prefixIcon: Icon(Icons.person),
         labelText: "Enter Your First Name",
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey, width: 1 , style: BorderStyle.solid),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+            style: BorderStyle.solid,
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue, width: 2 , style: BorderStyle.solid),
+          borderSide: BorderSide(
+            color: Colors.blue,
+            width: 2,
+            style: BorderStyle.solid,
+          ),
           borderRadius: BorderRadius.circular(8),
         ),
-
       ),
     );
   }
 }
-
-
-
-
-
-
-
+*/
