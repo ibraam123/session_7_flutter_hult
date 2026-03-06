@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:session_7_flutter_hult/session_nine/screens/home_screen.dart';
-
-import '../widgets/cart_view_body.dart';
-import '../widgets/profile_view_body.dart';
+import 'package:session_7_flutter_hult/session_nine/widgets/cart_view_body.dart';
+import 'package:session_7_flutter_hult/session_nine/widgets/profile_view_body.dart';
 
 // Part Two - Bottom Navigation Bar and Drawer
 // Bottom Navigation Bar Example with three tabs (Home, Cart, Profile) and a Snackbar to show the selected tab.
@@ -15,11 +14,13 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final List<Widget> _screens = [
-    const HomeScreen(),
-    const CartViewBody(),
-    const ProfileViewBody(),
+
+  List<Widget> screens = [
+    HomeScreen(),
+    CartViewBody(),
+    ProfileViewBody(),
   ];
+
   int _currentIndex = 0;
 
   @override
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
-      body: _screens[_currentIndex],
+      body: screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -52,7 +53,7 @@ class _MainScreenState extends State<MainScreen> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               backgroundColor: Colors.blueAccent,
-              duration: Duration(seconds: 2),
+              duration: Duration(seconds: 5),
               behavior: SnackBarBehavior.floating,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -87,6 +88,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -134,3 +136,24 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
+class DrawerItem extends StatelessWidget {
+  const DrawerItem({super.key, required this.icon, required this.text});
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return  Row(
+      children: [
+        Icon(icon),
+        SizedBox(width: 16,),
+        Text(
+            text
+        )
+      ],
+    );
+  }
+}
+

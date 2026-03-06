@@ -4,7 +4,6 @@ import 'package:session_7_flutter_hult/session_nine/screens/details_screen.dart'
 import 'package:session_7_flutter_hult/session_nine/screens/fourth_screen.dart';
 import 'package:session_7_flutter_hult/session_nine/screens/secoend_screen.dart';
 import 'package:session_7_flutter_hult/session_nine/screens/third_screen.dart';
-
 import '../../session_eight/widgets/buttons_widget.dart';
 
 // Part One - Navigation and Routing
@@ -38,13 +37,10 @@ class HomeBody extends StatelessWidget {
           ButtonsWidgets(
             name: "Go to Second Screen",
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const SecondScreen();
-                  },
-                ),
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context){
+                  return SecondScreen();
+                })
               );
             },
             buttonType: "ElevatedButton",
@@ -54,13 +50,10 @@ class HomeBody extends StatelessWidget {
           ButtonsWidgets(
             name: "Go to Third Screen",
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const ThirdScreen();
-                  },
-                ),
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) {
+                  return ThirdScreen();
+                })
               );
             },
             buttonType: "ElevatedButton",
@@ -69,8 +62,9 @@ class HomeBody extends StatelessWidget {
           // Pushing to a new screen using Navigator.pushNamed
           ButtonsWidgets(
             name: "Go to Fourth Screen",
+            // navigating using named routes defined in main.dart
             onTap: () {
-              Navigator.pushNamed(context, FourthScreen.routeName);
+              Navigator.of(context).pushNamed(FourthScreen.routeName);
             },
             buttonType: "ElevatedButton",
           ),
@@ -79,13 +73,10 @@ class HomeBody extends StatelessWidget {
           ButtonsWidgets(
             name: "Go to Details Screen with Data",
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const DetailsScreen(data: "Hello from Home Screen!");
-                  },
-                ),
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) {
+                  return DetailsScreen(data: "Hello World",);
+                })
               );
             },
             buttonType: "ElevatedButton",

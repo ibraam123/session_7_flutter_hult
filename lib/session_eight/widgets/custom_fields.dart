@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 // TextField Widget Example
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key, required this.icon, required this.labelText, this.onChanged});
+  const CustomTextField({super.key, required this.icon, required this.labelText, this.onChanged, this.onSubmit});
   final Icon icon;
   final String labelText;
   final void Function(String)? onChanged;
+  final String? Function(String?)? onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CustomTextField extends StatelessWidget {
           ),
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            borderSide: BorderSide(color: Colors.blue, width: 2.0),
+            borderSide: BorderSide(color: Colors.red, width: 2.0),
           ),
 
         ),
@@ -29,10 +30,7 @@ class CustomTextField extends StatelessWidget {
         ,
         onChanged: onChanged
         ,
-        onSubmitted: (value) {
-          // Handle text submission here
-          print('Text submitted: $value');
-        },
+        onSubmitted: onSubmit,
       ),
     );
   }

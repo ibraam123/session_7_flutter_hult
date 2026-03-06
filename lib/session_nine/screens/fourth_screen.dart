@@ -4,7 +4,7 @@ import 'package:session_7_flutter_hult/session_eight/widgets/buttons_widget.dart
 
 class FourthScreen extends StatelessWidget {
   const FourthScreen({super.key});
-  static const String routeName = "/fourth";
+  static const String routeName = "/forth_screen";
 
   @override
   Widget build(BuildContext context) {

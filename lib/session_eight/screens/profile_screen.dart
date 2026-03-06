@@ -3,6 +3,7 @@ import 'package:session_7_flutter_hult/session_eight/widgets/buttons_widget.dart
 
 import '../app_colors.dart';
 import '../widgets/custom_container_test.dart';
+import '../widgets/custom_fields.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -32,9 +33,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            /*CustomTextField(onSubmit: (value) {
-              tempName = value;
-            }),*/
+            CustomTextField(
+              icon: const Icon(Icons.person),
+              labelText: "Enter your name",
+              onChanged: (value) {
+                tempName = value;
+              },
+            ),
             const SizedBox(height: 48),
             CircleAvatar(
               radius: 50,
@@ -110,3 +115,103 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 }
 
+
+class ProfileViewBodyTask extends StatefulWidget {
+  const ProfileViewBodyTask({super.key});
+
+  @override
+  State<ProfileViewBodyTask> createState() => _ProfileViewBodyTaskState();
+}
+
+class _ProfileViewBodyTaskState extends State<ProfileViewBodyTask> {
+  String name = "Guest";
+  String tempName = "";
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsetsGeometry.all(16),
+      child: Column(
+        children: [
+          const SizedBox(height: 16),
+          CustomTextField(
+            icon: const Icon(Icons.person),
+            labelText: "Enter your name",
+            onChanged: (value) {
+              tempName = value;
+            },
+          ),
+          const SizedBox(height: 48),
+          CircleAvatar(
+            radius: 50,
+            backgroundColor: Colors.red,
+            child: const Icon(Icons.person, size: 50, color: Colors.white),
+          ),
+          SizedBox(height: 20),
+          RichText(
+            text: TextSpan(
+              text: "Hello, ",
+              style: TextStyle(
+                fontSize: 36,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+              children: [
+                TextSpan(
+                  text: name,
+                  style: TextStyle(
+                    fontSize: 36,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 8),
+          Text(
+            "Welcome to the profile app. Please enter your name above to see the greeting message.",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ButtonsWidgets(
+                buttonType: "ElevatedButton",
+                name: "Update Name",
+                onTap: () {
+                  if(tempName != ""){
+                    name = tempName;
+                    setState(() {
+
+                    });
+                  }
+                },
+              ),
+              SizedBox(width: 8),
+              ButtonsWidgets(
+                buttonType: "TextButton",
+                name: "Reset Name",
+                onTap: () {
+                  setState(() {
+                    name = "Guest";
+                  });
+                },
+              ),
+            ],
+          ),
+          SizedBox(height: 28,),
+          CustomContainerTest(count: count, onPress: (){
+            setState(() {
+              count++;
+            });
+          },),
+
+        ],
+      ),
+    );
+  }
+}

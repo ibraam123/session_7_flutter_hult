@@ -25,7 +25,7 @@ class ButtonsWidgets extends StatelessWidget {
     } else if (buttonType == 'TextButton') {
       return TextButton(
         style: TextButton.styleFrom(
-          foregroundColor: Colors.blue,
+          foregroundColor: Colors.red,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -37,7 +37,7 @@ class ButtonsWidgets extends StatelessWidget {
     } else if (buttonType == 'IconButton') {
       return IconButton(
         style: IconButton.styleFrom(
-          foregroundColor: Colors.blue,
+          foregroundColor: Colors.red,
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
         onPressed: () {

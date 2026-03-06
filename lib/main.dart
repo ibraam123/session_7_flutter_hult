@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:session_7_flutter_hult/session_nine/screens/main_screen.dart';
-import 'package:session_7_flutter_hult/session_nine/tasks/logic/task_repo.dart';
-import 'package:session_7_flutter_hult/session_nine/tasks/screens/home_screen_task.dart';
+import 'package:session_7_flutter_hult/session_nine/tasks/screens/main_screen_task.dart';
 
 /*
 Session 7 Topics explanation:
@@ -51,11 +49,10 @@ Session 9 Topics explanation:
 * */
 
 
-/*
 void main() {
   runApp(const ExamplesSession());
 }
-*/
+
 class ExamplesSession extends StatelessWidget {
   const ExamplesSession({super.key});
 
@@ -63,27 +60,10 @@ class ExamplesSession extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const MainScreen(),
+      home: MainScreenTask(),
     );
   }
-}
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Task Manager',
-      home: HomeScreenTask(taskRepo: TaskRepo(),),
-    );
-  }
 }
 
 
@@ -91,6 +71,7 @@ class MyApp extends StatelessWidget {
 
 
 
+// Custom Field Example
 
 /*
 class CustomTextField extends StatelessWidget {
